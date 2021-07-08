@@ -30,25 +30,43 @@ Constraints:
 
 // Method 1 Brute Force
 
-const twoSum = (nums, target) => {
-    // first we create an array to hold the value of the indeces that match our criteria.
-    const indeces = [];
-    // Iterate through the array to check against the first number.
-    for (let i = 0; i < nums.length; i++) {
-        // Iterate through the array again for the second number. Keeping in mind we only want to use each value once we start the variable at i + 1 so so it starts iterating through the array after the first number.
-        for (let j = i + 1; j < nums.length; j++) {
-            // if we get a match for the total given as our target than we want to add each index to the array we created.
-            if (nums[i] + nums[j] === target) {
-                indeces.push(i);
-                indeces.push(j);
+const twoSum = (nums, target, style) => {
+    if (style === 0) {
+        // first we create an array to hold the value of the indeces that match our criteria.
+        const indeces = [];
+        // Iterate through the array to check against the first number.
+        for (let i = 0; i < nums.length; i++) {
+            // Iterate through the array again for the second number. Keeping in mind we only want to use each value once we start the variable at i + 1 so so it starts iterating through the array after the first number.
+            for (let j = i + 1; j < nums.length; j++) {
+                // if we get a match for the total given as our target than we want to add each index to the array we created.
+                if (nums[i] + nums[j] === target) {
+                    indeces.push(i);
+                    indeces.push(j);
+                }
+            }
+        }
+        // Don't forget we need to return the values we added to our array as the result of the function.
+        console.log("Brute Force")
+        return indeces;
+    } else if (style === 1) {
+        // here we are going to create hashmap.
+        const numObject = {};
+
+        for (let i = 0; i < nums.length; i++) {
+            let thisNum = nums[i];
+            numObject[thisNum] = i;
+        }
+        for (let i = 0; i < nums.length; i++) {
+            let diff = target - nums[i];
+            if (numObject.hasOwnProperty(diff) && numObject[diff] !== i) {
+                console.log("Hashmap")
+                return [i, numObject[diff]];
             }
         }
     }
-    // Don't forget we need to return the values we added to our array as the result of the function.
-    return console.log(indeces);
 };
 
 // export for testing above function/s in the dom
 export const twoSumSolution = () => {
-    twoSum([2, 7, 11, 15], 13);
+    console.log(twoSum([2, 7, 11, 15], 13, 1));
 };
