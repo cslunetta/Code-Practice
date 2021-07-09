@@ -56,6 +56,7 @@ const twoSum = (nums, target, style) => {
             let thisNum = nums[i];
             numObject[thisNum] = i;
         }
+        debugger
         for (let i = 0; i < nums.length; i++) {
             let diff = target - nums[i];
             if (numObject.hasOwnProperty(diff) && numObject[diff] !== i) {

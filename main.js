@@ -1,7 +1,7 @@
-import { animalResults } from "./exercises/animals.js";
-import { availableBookResults } from "./exercises/availableBooks.js";
-import { movieObjectResults } from "./exercises/movieObject.js";
-import { twoSumSolution } from "./exercises/twoSum.js";
+import { animalResults } from "./exercisesJS/animals.js";
+import { availableBookResults } from "./exercisesJS/availableBooks.js";
+import { movieObjectResults } from "./exercisesJS/movieObject.js";
+import { twoSumSolution } from "./exercisesJS/twoSum.js";
 
 animalResults();
 console.log("---");
